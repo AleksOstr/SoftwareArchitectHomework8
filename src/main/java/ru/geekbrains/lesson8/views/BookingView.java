@@ -1,5 +1,6 @@
 package ru.geekbrains.lesson8.views;
 
+import ru.geekbrains.lesson8.models.Reservation;
 import ru.geekbrains.lesson8.models.Table;
 import ru.geekbrains.lesson8.presenters.View;
 import ru.geekbrains.lesson8.presenters.ViewObserver;
@@ -19,6 +20,18 @@ public class BookingView implements View {
     public void showTables(Collection<Table> tables){
         for (Table table: tables) {
             System.out.println(table);
+        }
+    }
+
+    @Override
+    public void showAllReservations(Collection<Table> tables) {
+        for (Table table : tables) {
+            Collection<Reservation> reservations = table.getReservations();
+            if (reservations != null) {
+                for (Reservation reservation : reservations) {
+                    System.out.println(reservation);
+                }
+            }
         }
     }
 

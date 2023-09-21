@@ -14,6 +14,12 @@ public interface View {
     void showTables(Collection<Table> tables);
 
     /**
+     * Отображение всех броней столиков
+     * @param tables список столиков
+     */
+    void showAllReservations(Collection<Table> tables);
+
+    /**
      * Отобразить результат бронирования столика
      * @param reservationNo номер брони
      */
@@ -40,6 +46,13 @@ public interface View {
      */
     void reservationTable(Date orderDate, int tableNo, String name);
 
+    /**
+     * Событие: Клиент нажал на кнопку изменения резерва столика
+     * @param oldReservation номер резерва (старый)
+     * @param reservationDate дата резерва
+     * @param tableNo номер столика (новый)
+     * @param name имя клиента
+     */
     void changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name);
 
 }

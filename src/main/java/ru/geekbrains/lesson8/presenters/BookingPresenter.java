@@ -32,6 +32,13 @@ public class BookingPresenter implements ViewObserver {
         view.showTables(loadTables());
     }
 
+    /**
+     * Отобразить список всех бронирований (для наглядной проверки работы ДЗ)
+     */
+    public void updateUIShowAllReservations() {
+        view.showAllReservations(loadTables());
+    }
+
     public void updateUIShowReservationTableResult(int reservationNo){
         view.showReservationTableResult(reservationNo);
     }

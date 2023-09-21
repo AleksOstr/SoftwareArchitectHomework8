@@ -1,11 +1,14 @@
 package ru.geekbrains.lesson8;
 
+import ru.geekbrains.lesson8.models.Reservation;
+import ru.geekbrains.lesson8.models.Table;
 import ru.geekbrains.lesson8.models.TableModel;
 import ru.geekbrains.lesson8.presenters.BookingPresenter;
 import ru.geekbrains.lesson8.presenters.Model;
 import ru.geekbrains.lesson8.presenters.View;
 import ru.geekbrains.lesson8.views.BookingView;
 
+import java.util.Collection;
 import java.util.Date;
 
 public class Main {
@@ -23,8 +26,14 @@ public class Main {
         presenter.updateUIShowTables();
 
         view.reservationTable(new Date(), 2, "Станислав");
+        view.reservationTable(new Date(), 1, "Алексей");
 
-        //view.changeReservationTable(1001, new Date, 3, "Станислав");
+        presenter.updateUIShowAllReservations();
+
+        System.out.println("------------------------");
+        view.changeReservationTable(1002, new Date(), 3, "Алексей");
+
+        presenter.updateUIShowAllReservations();
     }
 
 }

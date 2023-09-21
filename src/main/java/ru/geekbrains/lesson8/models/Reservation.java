@@ -26,4 +26,14 @@ public class Reservation {
         this.date = date;
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Бронь " +
+                "Номер " + id +
+                ", " + table +
+                ", Дата " + date +
+                ", Имя '" + name + '\'' +
+                '}';
+    }
 }

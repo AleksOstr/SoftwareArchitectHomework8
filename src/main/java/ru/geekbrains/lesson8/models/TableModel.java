@@ -56,14 +56,22 @@ public class TableModel implements Model {
      * @return
      */
     public int changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name){
+        boolean isRemoved = false;
         for (Table table : tables) {
             Collection<Reservation> reservations = table.getReservations();
-            for (Reservation reservation : reservations) {
-                if (reservation.getId() == oldReservation) {
-                    table.getReservations().remove(reservation);
+            if (reservations != null) {
+                for (Reservation reservation : reservations) {
+                    if (reservation.getId() == oldReservation) {
+                        table.getReservations().remove(reservation);
+                        isRemoved = true;
+                        break;
+                    }
                 }
             }
+            if (isRemoved) break;
         }
+        if (!isRemoved) throw new RuntimeException("Бронь не найдена.");
+        return reservationTable(reservationDate, tableNo, name);
     }
 
 }
